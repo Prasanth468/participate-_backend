@@ -13,9 +13,9 @@ import java.util.List;
 @Configuration
 public class CorsConfig {
 
-    // Reads from application.properties → app.cors.allowed-origins
+    // Reads CORS_ALLOWED_ORIGINS env var directly
     // In production set env var: CORS_ALLOWED_ORIGINS=https://your-app.vercel.app
-    @Value("${app.cors.allowed-origins:http://localhost:5173}")
+    @Value("${CORS_ALLOWED_ORIGINS:http://localhost:5173}")
     private String allowedOrigins;
 
     @Bean
