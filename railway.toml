@@ -1,9 +1,8 @@
 [build]
 builder = "nixpacks"
+buildCommand = "mvn clean package -DskipTests"
 
 [deploy]
-startCommand = "java -jar target/*.jar"
-healthcheckPath = "/actuator/health"
-healthcheckTimeout = 100
+startCommand = "java -Dserver.address=0.0.0.0 -jar target/participatehere-backend-1.0.0.jar"
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
